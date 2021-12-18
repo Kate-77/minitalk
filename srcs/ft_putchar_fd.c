@@ -1,45 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmoutaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/18 17:19:24 by kmoutaou          #+#    #+#             */
-/*   Updated: 2021/12/18 17:45:16 by kmoutaou         ###   ########.fr       */
+/*   Created: 2021/11/13 21:25:43 by kmoutaou          #+#    #+#             */
+/*   Updated: 2021/12/18 23:26:47 by kmoutaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+/*
+	ft_putchar_fd is a function that outputs the character ’c’ to the given 
+	file descriptor.
+*/
 
-static int	ft_size(int n)
+#include "../minitalk.h" 
+
+void	ft_putchar_fd(char c, int fd)
 {
-	int	size;
-
-	size = 1;
-	while (n > 9)
-	{
-		n = n / 10;
-		size++;
-	}
-	return (size);
-}
-
-int	main()
-{
-	int	n;
-	int	size;
-	char *str = "Kaoutar";
-	while (*str)
-	{
-		n = 8;
-		size = ft_size(*str);
-		while (n && size)
-		{
-			printf("%d", *str >> 2 & 1);
-			n--;
-		}
-		printf("\n");
-		str++;
-	}
+	write(fd, &c, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: kmoutaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 14:33:32 by kmoutaou          #+#    #+#             */
-/*   Updated: 2021/12/18 17:47:49 by kmoutaou         ###   ########.fr       */
+/*   Updated: 2021/12/18 23:25:50 by kmoutaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 	string pointed to by str to an integer.
 */
 
-int	ft_isdigit(int c);
+#include "../minitalk.h"
 
 static int	ft_convert(const char *str, int i, int result, int sign)
 {

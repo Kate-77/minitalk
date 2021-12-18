@@ -6,7 +6,7 @@
 /*   By: kmoutaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 21:53:56 by kmoutaou          #+#    #+#             */
-/*   Updated: 2021/12/18 16:15:47 by kmoutaou         ###   ########.fr       */
+/*   Updated: 2021/12/18 23:26:25 by kmoutaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 	descriptor.
 */
 
-#include <unistd.h>
+#include "../minitalk.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

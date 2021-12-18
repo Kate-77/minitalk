@@ -3,35 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmoutaou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kmoutaou <kmoutaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 22:53:47 by kmoutaou          #+#    #+#             */
-/*   Updated: 2021/12/18 17:49:39 by kmoutaou         ###   ########.fr       */
+/*   Updated: 2021/12/18 23:27:23 by kmoutaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <unistd.h>
+#include "../minitalk.h"
 
-int	ft_atoi(const char *str);
-
-int	convert_char(char *s, int i)
+static void	convert_cb(char c, pid_t pid)
 {
-	int	n;
+	int	j;
+	char	s;
 
-	n = 8;
-	while (n > 0)
+	j = 0;
+	while (j < 8)
 	{
-		result = s[i] 
+		if ((c >> (7 - j) & 1) == 0)
+			kill(pid, SIGUSR1);
+		else
+			kill(pid, SIGUSR2);
+		j++;
+		usleep(100);
 	}
 }
 
 int	main(int argc, char **argv)
 {
 	pid_t	pid;
+	char	*s;
 
-	pid = ft_atoi(argv[1]);
-	write(1, "1", 1);
-	kill(pid, SIGUSR1);
+	if (argc == 3)
+	{
+		pid = ft_atoi(argv[1]);
+		s = argv[2];
+		while (*s)
+		{
+			convert_cb(*s, pid);
+			s++;
+		}
+	}
+	else
+		write(1, "Meh", 3);
 	return (0);
 }
