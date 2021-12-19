@@ -6,7 +6,7 @@
 /*   By: kmoutaou <kmoutaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 22:53:47 by kmoutaou          #+#    #+#             */
-/*   Updated: 2021/12/18 23:27:23 by kmoutaou         ###   ########.fr       */
+/*   Updated: 2021/12/19 13:55:12 by kmoutaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void	convert_cb(char c, pid_t pid)
 {
 	int	j;
-	char	s;
 
 	j = 0;
 	while (j < 8)
@@ -45,6 +44,6 @@ int	main(int argc, char **argv)
 		}
 	}
 	else
-		write(1, "Meh", 3);
+		ft_putstr_fd("Something is wrong with your arguments mate", 1);
 	return (0);
 }

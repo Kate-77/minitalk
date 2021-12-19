@@ -6,7 +6,7 @@
 #    By: kmoutaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/07 19:40:06 by kmoutaou          #+#    #+#              #
-#    Updated: 2021/12/18 23:33:00 by kmoutaou         ###   ########.fr        #
+#    Updated: 2021/12/19 14:03:14 by kmoutaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,17 +18,14 @@ CC			= cc
 
 FLAGS		= -Wall -Wextra -Werror
 
-CLIENT		= srcs/client.c srcs/ft_atoi.c srcs/ft_isdigit.c
-
-SERVER		= srcs/server.c srcs/ft_putnbr_fd.c srcs/ft_putchar_fd.c srcs/ft_putstr_fd.c
-
 all: 		$(CLIENT) $(SERVER)
 
-$(client):	$(CLIENT) 
-			ar rcs $(CLIENT) $(CLIENT)
+$(CLIENT)	:
+			$(CC) $(FLAGS) srcs/client.c srcs/ft_atoi.c srcs/ft_isdigit.c srcs/ft_putstr_fd.c -o client
 
-$(server):	$(SERVER)
-			ar rcs $(SERVER) $(SERVER)
+
+$(SERVER):
+			$(CC) $(FLAGS) srcs/server.c srcs/ft_putnbr_fd.c srcs/ft_putchar_fd.c -o server
 
 %.o: %.c
 			$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
@@ -38,7 +35,6 @@ clean:
 			rm -f $(CLIENT) $(SERVER)
 
 fclean: 	clean
-			rm -f $(CLIENT) $(SERVER)
 
 re: 		fclean all
 
